@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>hello_react</title>
+    </head>
+    <body>
+        <!-- prepare the container -->
+        <div id="test"></div>
+
+        <!-- import -->
+        <script type="text/javascript" src="../js/react.development.js"></script>
+        <script type="text/javascript" src="../js/react-dom.development.js"></script>
+        
+        <script type="text/javascript" src="../js/babel.min.js"></script>
+
+        <script type="text/babel">
+            //1. create virtual DOM
+            const VDOM = (
+                <h1 id="title">
+                    <span>Hello,React</span>
+                </h1>
+            )
+            console.log(VDOM);
+            //2. render virtual DOM to page
+
+            // ReactDOM.render(VDOM,document.getElementById('test'))
+            ReactDOM.render(VDOM, document.getElementById("test"));
+        </script>
+    </body>
+</html>
