@@ -16,16 +16,17 @@
         <script type="text/javascript" src="../js/babel.min.js"></script>
 
         <script type="text/babel">
-            //1. create virtual DOM
-            const VDOM = (
-                <h1 id="title">
-                    <span>Hello,React</span>
-                </h1>
-            )
-            console.log(VDOM);
-            //2. render virtual DOM to page
-            // ReactDOM.render(VDOM,document.getElementById('test'))
-            ReactDOM.render(VDOM, document.getElementById("test"));
+            //1.create the virtual DOM
+            function MyComponent() {
+                console.log(this); //this is undefined here since babel has strict mode
+
+                return (
+                    <h2>I am a Component defined by a function, for simplied component</h2>
+                );
+            }
+              
+            //2. render components to page
+            ReactDOM.render(<MyComponent/>, document.getElementById('test'))
         </script>
     </body>
 </html>

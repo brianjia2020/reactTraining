@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>hello_react</title>
+        <style>
+            .title{
+                background-color: orange;
+                width: 200px;
+            }
+        </style>
+    </head>
+    <body>
+        <!-- prepare the container -->
+        <div id="test"></div>
+
+        <!-- import -->
+        <script type="text/javascript" src="../js/react.development.js"></script>
+        <script type="text/javascript" src="../js/react-dom.development.js"></script>
+        
+        <script type="text/javascript" src="../js/babel.min.js"></script>
+
+        <script type="text/babel">
+            //1. create virtual DOM
+            const myId = 'aTGuiGu'
+            const myData = 'Hello,React'
+            const VDOM = (
+                <div>
+                    <h1 className='.title' id= {myId.toLocaleLowerCase()}>
+                        <span style={{color: 'orange', fontsize: '30px'}}>{myData}</span>
+                    </h1>
+                    <input type="text" />
+                </div>
+            )
+            //2. render virtual DOM to page
+            // ReactDOM.render(VDOM,document.getElementById('test'))
+            ReactDOM.render(VDOM, document.getElementById("test"));
+
+            /**
+             * 
+             *  JSX syntax:
+             *      1. when using, do not use quote
+             *      2. use {} when mixed with js code
+             *      3. style has to use className, not class
+             *      4. internal style to use {{key:value}}
+             *      5. virtual DOM can only has one root tag
+             *      6. tags has to be enclosed
+             *      7. first letter of tag, 
+             *             if lowercase, it will convert tag to html element. if no such element, error out
+             *             if uppercase, react will render the corresponding component
+             * */
+        </script>
+    </body>
+</html>
