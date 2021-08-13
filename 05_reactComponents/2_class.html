@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>hello_react</title>
+    </head>
+    <body>
+        <!-- prepare the container -->
+        <div id="test"></div>
+
+        <!-- import -->
+        <script type="text/javascript" src="../js/react.development.js"></script>
+        <script type="text/javascript" src="../js/react-dom.development.js"></script>
+        
+        <script type="text/javascript" src="../js/babel.min.js"></script>
+
+        <script type="text/babel">
+            class Person {
+                //constructor
+                constructor(name, age) {
+                    //this in the constructor means current instance
+                    this.name = name;
+                    this.age = age;
+                }
+
+                //method
+                speak() {
+                    console.log(`My name is ${this.name} and I am ${this.age} years old`)
+                }
+            }
+
+            // const p1 = new Person('tom', 18);
+            // const p2 = new Person('jerry', 19);
+            // console.log(p1)
+            // console.log(p2)
+            // p1.speak()
+            // p2.speak()
+
+            class Student extends Person {
+                //constructor
+                constructor(name, age, grade) {
+                    //this in the constructor means current instance
+                    super(name,age);
+                    this.grade = grade;
+                    this.school = 'shangguigu';
+                }
+
+                speak() {
+                    console.log(`My name is ${this.name} and I am ${this.age} years old. I am in ${this.grade}`)
+                }
+
+                study() {
+                    console.log(`I am studying hard`)
+                }
+            }
+
+            
+            const s1 = new Student('xiaozhang', 15, 'gaoyi')
+            s1.speak()
+            s1.study()
+        </script>
+    </body>
+</html>
