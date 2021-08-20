@@ -20,21 +20,41 @@
 
             class Weather extends React.Component {
                 
-                constructor(isHot) {
-                    super();
-                    this.isHot = false;
+                constructor(props) {
+                    super(props);
+                    this.state = {isHot: false};
+                    this.changeWeather = this.changeWeather.bind(this)
+                }
+                
+                changeWeather() {
+                    console.log('The value of isHot has been changed here.')
+                    //as changeWeather has been the callback of onClick, so it's not called by 
+                    //instance, but called directly
+                    //the method inside class has strict mode locally, that's why this inside changeWeather
+                    //is undefined
+                    // this.state.isHot = !this.state.isHot;
+                    console.log(this);
                 }
 
                 render() {
                     console.log(this);
+                    const {isHot} = this.state.isHot;
                     return (
-                        <h1>Today is very hot</h1>
+                        <h1 onClick={this.changeWeather}>Today is very {isHot ? 'hot': 'cold'}</h1>
                     )
                 }
+            
             }
 
             //2. render to page
             ReactDOM.render(<Weather/>, document.getElementById('test'))
+
+            // const title = document.getElementById('title')
+            // title.onclick = () => {
+            //     console.log('title has been clicked')
+            // }
+            
+
         </script>
     </body>
 </html>

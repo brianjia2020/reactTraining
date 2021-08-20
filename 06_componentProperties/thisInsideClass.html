@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>Docuent</title>
+    </head>
+    <body>
+        <script type="text/javascript">
+            class Person {
+                constructor(name, age){
+                    this.name = name
+                    this.age = age
+                }
+
+                speak() {
+                    //
+                    console.log(this);
+                }
+            }
+
+            const p1 = new Person('tom', 18)
+            p1.speak() // called by instance
+
+            //x has become undefined !!!!
+            //call this method directly
+            //the method defined inside a class
+            const x = p1.speak 
+            x()
+        </script>
+    </body>
+</html>
