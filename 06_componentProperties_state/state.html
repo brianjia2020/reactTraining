@@ -26,19 +26,26 @@
                     this.changeWeather = this.changeWeather.bind(this)
                 }
                 
+                //called by n times where n is the number of clicks
                 changeWeather() {
-                    console.log('The value of isHot has been changed here.')
                     //as changeWeather has been the callback of onClick, so it's not called by 
                     //instance, but called directly
                     //the method inside class has strict mode locally, that's why this inside changeWeather
                     //is undefined
                     // this.state.isHot = !this.state.isHot;
-                    console.log(this);
+                    const isHot = this.state.isHot;
+                    //state cannot be changed directly, has to rely on react APIs!!!!!
+                    // this.state.isHot = !isHot; //this is react's one way data binding
+                    // the setState is to combine, not to replace
+                    this.setState({isHot: !isHot});
+
+                    console.log(this.state.isHot);
                 }
 
+                //render method has been called 1+n times
                 render() {
                     console.log(this);
-                    const {isHot} = this.state.isHot;
+                    const isHot = this.state.isHot;
                     return (
                         <h1 onClick={this.changeWeather}>Today is very {isHot ? 'hot': 'cold'}</h1>
                     )
